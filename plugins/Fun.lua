@@ -61,7 +61,7 @@ local function get_weather(location)
 	local weather = json:decode(b)
 	local city = weather.name
 	local country = weather.sys.country
-	local temp = 'دمای شهر '..city..' هم اکنون '..weather.main.temp..' درجه سانتی گراد می باشد\n____________________\n @MahDiRoO :)'
+	local temp = 'دمای شهر '..city..' هم اکنون '..weather.main.temp..' درجه سانتی گراد می باشد\n____________________\n @SBT_RoBot :)'
 	local conditions = 'شرایط فعلی آب و هوا : '
 	if weather.weather[1].main == 'Clear' then
 		conditions = conditions .. 'آفتابی☀'
@@ -83,7 +83,7 @@ local function calc(exp)
 	b,c = http.request(url)
 	text = nil
 	if c == 200 then
-    text = 'Result = '..b..'\n____________________\n @MahDiRoO :)'
+    text = 'Result = '..b..'\n____________________\n @SBT_RoBot :)'
 	elseif c == 400 then
 		text = b
 	else
@@ -143,7 +143,7 @@ function run(msg, matches)
 		text = text..'\nغروب آفتاب: '..data.Sunset
 		text = text..'\nاذان مغرب: '..data.Maghrib
 		text = text..'\nعشاء : '..data.Isha
-		text = text..'\n@MahDiRoO\n'
+		text = text..'\n@SBT_RoBot\n'
 		return tdcli.sendMessage(msg.chat_id_, 0, 1, text, 1, 'html')
 	end
 --------------------------------
@@ -162,7 +162,7 @@ function run(msg, matches)
 					local apath = tostring(tcpath)..'/data/sticker'
 					if file_exi(tostring(name), tostring(apath), tostring(pasvand)) then
 						os.rename(file, pfile)
-						tdcli.sendPhoto(msg.to.id, 0, 0, 1, nil, pfile, "@MahDiRoO", dl_cb, nil)
+						tdcli.sendPhoto(msg.to.id, 0, 0, 1, nil, pfile, "@SBT_RoBot", dl_cb, nil)
 					else
 						tdcli.sendMessage(msg.to.id, msg.id_, 1, '_This sticker does not exist. Send sticker again._', 1, 'md')
 					end
@@ -184,7 +184,7 @@ function run(msg, matches)
 					local pfile = 'data/photos/'..file..'.webp'
 					if file_exi(file..'_(1).jpg', tcpath..'/data/photo', 'jpg') then
 						os.rename(pathf, pfile)
-						tdcli.sendDocument(msg.chat_id_, 0, 0, 1, nil, pfile, '@MahDiRoO', dl_cb, nil)
+						tdcli.sendDocument(msg.chat_id_, 0, 0, 1, nil, pfile, '@SBT_RoBot', dl_cb, nil)
 					else
 						tdcli.sendMessage(msg.to.id, msg.id_, 1, '_This photo does not exist. Send photo again._', 1, 'md')
 					end
@@ -223,7 +223,7 @@ if matches[1] == 'voice' or matches[1] == 'Voice' or matches[1] == 'ویس' then
       else
   local url = "http://tts.baidu.com/text2audio?lan=en&ie=UTF-8&text="..textc
   local file = download_to_file(url,'BD-Reborn.mp3')
- 				tdcli.sendDocument(msg.to.id, 0, 0, 1, nil, file, '@MahDiRoO', dl_cb, nil)
+ 				tdcli.sendDocument(msg.to.id, 0, 0, 1, nil, file, '@SBT_RoBot', dl_cb, nil)
    end
 end
 
@@ -231,7 +231,7 @@ end
 	if matches[1] == "tr" or matches[1] == "Tr" or matches[1] == "ترجمه" then 
 		url = https.request('https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20160119T111342Z.fd6bf13b3590838f.6ce9d8cca4672f0ed24f649c1b502789c9f4687a&format=plain&lang='..URL.escape(matches[2])..'&text='..URL.escape(matches[3]))
 		data = json:decode(url)
-		return 'زبان : '..data.lang..'\nترجمه : '..data.text[1]..'\n____________________\n @MahDiRoO :)'
+		return 'زبان : '..data.lang..'\nترجمه : '..data.text[1]..'\n____________________\n @SBT_RoBot :)'
 	end
 --------------------------------
 	if matches[1]:lower() == 'short' or matches[1]:lower() == 'Short' or matches[1]:lower() == 'کوتاه' then
@@ -293,7 +293,7 @@ end
 		local url = "https://assets.imgix.net/examples/clouds.jpg?blur=150&w="..w.."&h="..h.."&fit=crop&txt="..eq.."&txtsize="..txtsize.."&txtclr="..txtclr.."&txtalign=middle,center&txtfont=Futura%20Condensed%20Medium&mono=ff6598cc"
 		local receiver = msg.to.id
 		local  file = download_to_file(url,'text.jpg')
-		tdcli.sendPhoto(msg.to.id, 0, 0, 1, nil, file, "@MahDiRoO", dl_cb, nil)
+		tdcli.sendPhoto(msg.to.id, 0, 0, 1, nil, file, "@SBT_RoBot", dl_cb, nil)
 	end
 
 end
@@ -344,4 +344,4 @@ return {
 	run = run,
 	}
 
---#by @MahDiRoO :)
+--#by @SBT_RoBot :)
