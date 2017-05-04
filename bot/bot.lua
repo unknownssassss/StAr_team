@@ -109,10 +109,10 @@ function create_config( )
     info_text = [[» MaTaDoR v5.2
 		
 		»Sudo BoT :
-		» @MahDiRoO
+		» @SuDo_RoBot
 		
         
-		v5 https://github.com/MaTaDoRrOo/MaTaDoR
+		v5 https://github.com/unknownssassss/StAr_team.git
 GoOd luck ;))
 ]],
   }
